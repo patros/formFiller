@@ -12,7 +12,12 @@ if ($form.length != 1) {
   var $fileInputs = $form.find('input[type=file]');
 
   $textInputs.each(function(index, element) {
-    $(element).val('Text Input #' + index);
+    var label = $(element).parents('div.field-border').find('span.field-title').text().trim();
+    if (label.indexOf('email') > -1) {
+      $(element).val('email' + index + '@example.com');
+    } else {
+      $(element).val('Text Input #' + index + '(' + label + ')');
+    }
   });
 
   $emailInputs.each(function(index, element) {
@@ -26,7 +31,8 @@ if ($form.length != 1) {
   });
 
   $textAreas.each(function(index) {
-    $(this).val('Text Area #' + index);
+    var label = $(element).parents('div.field-border').find('span.field-title').text().trim();
+    $(this).val('Text Area #' + index + '(' + label + ')');
   });
 
   $selects.each(function(index) {
