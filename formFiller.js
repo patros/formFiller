@@ -12,39 +12,39 @@ if ($form.length != 1) {
   var $fileInputs = $form.find('input[type=file]');
 
   $textInputs.each(function(index, element) {
-    var label = $(element).parents('div.field-border').find('span.field-title').text().trim();
+    var label = jQuery(element).parents('div.field-border').find('span.field-title').text().trim();
     if (label.indexOf('email') > -1) {
-      $(element).val('email' + index + '@example.com');
+      jQuery(element).val('email' + index + '@example.com');
     } else {
-      $(element).val('Text Input #' + index + '(' + label + ')');
+      jQuery(element).val('Text Input #' + index + '(' + label + ')');
     }
   });
 
   $emailInputs.each(function(index, element) {
-    $(element).val('email' + index + '@example.com');
+    jQuery(element).val('email' + index + '@example.com');
   });
 
   $telInputs.each(function(index, element) {
     var telephoneNumber = index.toString();
     while (telephoneNumber.length < 10) telephoneNumber = '0' + telephoneNumber;
-    $(element).val(telephoneNumber);
+    jQuery(element).val(telephoneNumber);
   });
 
   $textAreas.each(function(index) {
-    var label = $(element).parents('div.field-border').find('span.field-title').text().trim();
-    $(this).val('Text Area #' + index + '(' + label + ')');
+    var label = jQuery(element).parents('div.field-border').find('span.field-title').text().trim();
+    jQuery(this).val('Text Area #' + index + '(' + label + ')');
   });
 
   $selects.each(function(index) {
-    $(this).val($($(this).find('option')[1]).attr('value'));
+    jQuery(this).val(jQuery(jQuery(this).find('option')[1]).attr('value'));
   });
 
   $checkboxes.each(function(index) {
-    $(this).prop('checked', true);
+    jQuery(this).prop('checked', true);
   });
 
   $radios.each(function(index) {
-    $(this).prop('checked', true);
+    jQuery(this).prop('checked', true);
   });
 
   if ($fileInputs.length) alert('There are ' + $fileInputs.length + ' file inputs which require manual entry.');
