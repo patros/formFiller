@@ -13,7 +13,7 @@ if ($form.length != 1) {
 
   $textInputs.each(function(index, element) {
     var label = jQuery(element).parents('div.field-border').find('span.field-title').text().trim();
-    if (label.indexOf('email') > -1) {
+    if (label.toLowerCase().indexOf('email') > -1) {
       jQuery(element).val('email' + index + '@example.com');
     } else {
       jQuery(element).val('Text Input #' + index + '(' + label + ')');
